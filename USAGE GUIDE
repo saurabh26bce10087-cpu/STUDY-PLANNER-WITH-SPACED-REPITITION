@@ -1,0 +1,44 @@
+1. Add a Topic
+Add a topic you need to study. You can optionally assign it to a subject and set an exam date (YYYY-MM-DD format).
+
+Bash
+python study_planner.py add "Linked Lists" --subject DSA --exam 2026-12-10
+2. Check What's Due Today
+See a quick overview of topics that the algorithm has scheduled for today.
+
+Bash
+python study_planner.py today
+3. Review Topics
+Start your daily study session. The tool will prompt you to rate your recall of each due topic on a scale of 0 to 5.
+
+Bash
+python study_planner.py review
+0-2: Failed recall. The interval resets, and you will see it again tomorrow.
+
+3: Hard, but you remembered it.
+
+4: Good recall.
+
+5: Perfect recall. The interval increases significantly.
+
+4. View Upcoming Schedule
+Look ahead to see what topics are scheduled for the next X days (defaults to 7).
+
+Bash
+python study_planner.py plan --days 14
+5. List All Topics
+View your entire database of topics, their current intervals, ease factors, and next review dates.
+
+Bash
+python study_planner.py list
+6. Delete a Topic
+Remove a topic by its ID if you no longer need to study it.
+
+Bash
+python study_planner.py delete 3
+⚙️ How the Algorithm Works
+Initial Review: New topics have an interval of 1 day (due today) and 3 days for the second review.
+
+Standard SM-2: After the first two reps, the next interval is calculated by multiplying the previous interval by the topic's "Ease Factor" (starts at 2.5). Rating a topic poorly decreases the ease factor; rating it perfectly increases it.
+
+Exam Override: If an exam date is set, the interval is capped to half the remaining days left. Furthermore, the planner guarantees the final review is scheduled for the day before the exam, overriding standard SM-2 intervals.
