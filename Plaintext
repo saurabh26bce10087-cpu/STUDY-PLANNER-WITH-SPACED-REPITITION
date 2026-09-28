@@ -1,0 +1,5 @@
+study-planner/
+├── .gitignore
+├── LICENSE
+├── README.md
+└── study_planner.py
