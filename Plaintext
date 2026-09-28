@@ -2,4 +2,14 @@ study-planner/
 ├── .gitignore
 ├── LICENSE
 ├── README.md
-└── study_planner.py
+├── statements.md         # Problem statement and requirements
+├── tests/
+│   ├── __init__.py
+│   ├── test_scheduler.py # Tests for spaced repetition logic
+│   └── test_storage.py   # Tests for file I/O
+└── src/
+    ├── __init__.py
+    ├── main.py           # Entry point
+    ├── cli.py            # Command-line interface logic
+    ├── scheduler.py      # Core SM-2 and exam algorithms
+    └── storage.py        # JSON loading and saving
